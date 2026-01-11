@@ -37,16 +37,9 @@ export default function Home() {
     };
   }, [providers]);
 
-  // Providers to hide from landing page (but keep elsewhere)
-  const hiddenFromLanding = ["Nurx", "Wisp"];
-
   // Filter providers based on current filters
   const filteredProviders = useMemo(() => {
     return providers.filter((provider) => {
-      // Hide certain providers from landing page
-      if (hiddenFromLanding.includes(provider.name)) {
-        return false;
-      }
       // Price range filter - show providers whose starting price falls within the selected range
       if (filters.priceRange) {
         const [filterMin, filterMax] = filters.priceRange;
