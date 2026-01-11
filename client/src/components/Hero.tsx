@@ -48,6 +48,11 @@ export function Hero({ providerCount, onScrollToProviders }: HeroProps) {
               </Button>
             </div>
 
+            {/* Feature description */}
+            <p className="text-sm text-muted-foreground max-w-lg mx-auto" data-testid="text-feature-description">
+              Browse provider details, filter by your needs, and compare up to 2 providers side-by-side to find the best fit for you.
+            </p>
+
             {/* Trust indicators */}
             <div className="flex flex-wrap gap-4 pt-4 justify-center">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
