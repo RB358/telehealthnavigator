@@ -4,12 +4,18 @@ import { Hero } from "@/components/Hero";
 import { ProviderCard } from "@/components/ProviderCard";
 import { ProviderCardSkeleton } from "@/components/ProviderCardSkeleton";
 import { FilterSidebar } from "@/components/FilterSidebar";
+import { ComparisonBar } from "@/components/ComparisonBar";
+import { ComparisonModal } from "@/components/ComparisonModal";
 import { Badge } from "@/components/ui/badge";
 import type { Provider, ProviderFilter } from "@shared/schema";
+
+const MAX_COMPARISON = 2;
 
 export default function Home() {
   const providersRef = useRef<HTMLDivElement>(null);
   const [filters, setFilters] = useState<ProviderFilter>({});
+  const [selectedProviders, setSelectedProviders] = useState<Provider[]>([]);
+  const [showComparison, setShowComparison] = useState(false);
 
   const { data: providers = [], isLoading } = useQuery<Provider[]>({
     queryKey: ["/api/providers"],
@@ -81,6 +87,33 @@ export default function Home() {
     providersRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleProviderSelect = (provider: Provider) => {
+    setSelectedProviders((prev) => {
+      const isAlreadySelected = prev.some((p) => p.id === provider.id);
+      if (isAlreadySelected) {
+        return prev.filter((p) => p.id !== provider.id);
+      }
+      if (prev.length >= MAX_COMPARISON) {
+        return prev;
+      }
+      return [...prev, provider];
+    });
+  };
+
+  const handleRemoveFromComparison = (id: string) => {
+    setSelectedProviders((prev) => prev.filter((p) => p.id !== id));
+  };
+
+  const handleClearComparison = () => {
+    setSelectedProviders([]);
+  };
+
+  const handleOpenComparison = () => {
+    if (selectedProviders.length === MAX_COMPARISON) {
+      setShowComparison(true);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -144,7 +177,13 @@ export default function Home() {
               ) : (
                 <div className="grid md:grid-cols-2 gap-6" data-testid="grid-providers">
                   {filteredProviders.map((provider) => (
-                    <ProviderCard key={provider.id} provider={provider} />
+                    <ProviderCard 
+                      key={provider.id} 
+                      provider={provider}
+                      isSelected={selectedProviders.some((p) => p.id === provider.id)}
+                      onSelect={handleProviderSelect}
+                      selectionDisabled={selectedProviders.length >= MAX_COMPARISON}
+                    />
                   ))}
                 </div>
               )}
@@ -154,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* Trust Section */}
-      <section className="py-12 md:py-16 bg-card border-t border-border">
+      <section className={`py-12 md:py-16 bg-card border-t border-border ${selectedProviders.length > 0 ? 'pb-32' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold mb-4" data-testid="text-trust-heading">
@@ -168,6 +207,21 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Comparison Bar */}
+      <ComparisonBar
+        selectedProviders={selectedProviders}
+        onRemove={handleRemoveFromComparison}
+        onCompare={handleOpenComparison}
+        onClear={handleClearComparison}
+      />
+
+      {/* Comparison Modal */}
+      <ComparisonModal
+        providers={selectedProviders}
+        open={showComparison}
+        onClose={() => setShowComparison(false)}
+      />
     </div>
   );
 }
