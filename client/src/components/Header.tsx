@@ -23,7 +23,7 @@ export function Header() {
               <Stethoscope className="h-5 w-5 text-primary-foreground" />
             </div>
             <span className="font-semibold text-lg tracking-tight hidden sm:inline-block" data-testid="text-logo">
-              Contraceptive.AI
+              Contraceptive.ai
             </span>
           </Link>
 

@@ -12,7 +12,7 @@ export default function About() {
             From the creators of Contraceptive Compass
           </Badge>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6" data-testid="text-about-headline">
-            About Contraceptive.AI
+            About Contraceptive.ai
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto" data-testid="text-about-intro">
             We're on a mission to make contraceptive care more accessible by helping 
@@ -173,7 +173,7 @@ export default function About() {
           <p className="text-muted-foreground max-w-2xl mx-auto mb-6" data-testid="text-for-providers-description">
             Are you a telehealth provider offering contraceptive services? 
             We'd love to include you in our comparison. Contact us to learn more 
-            about listing your service on Contraceptive.AI.
+            about listing your service on Contraceptive.ai.
           </p>
           <p className="text-sm text-muted-foreground">
             Email us at{" "}

@@ -15,7 +15,7 @@ export function Footer() {
                 <Stethoscope className="h-4 w-4 text-primary-foreground" />
               </div>
               <span className="font-semibold text-lg" data-testid="text-footer-logo">
-                Contraceptive.AI
+                Contraceptive.ai
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -91,7 +91,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-xs text-muted-foreground" data-testid="text-copyright">
-              &copy; {new Date().getFullYear()} Contraceptive.AI. All rights reserved.
+              &copy; {new Date().getFullYear()} Contraceptive.ai. All rights reserved.
             </p>
             <p className="text-xs text-muted-foreground text-center sm:text-right max-w-md" data-testid="text-disclaimer">
               This site is for informational purposes only and does not provide medical advice. 

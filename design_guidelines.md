@@ -1,4 +1,4 @@
-# Design Guidelines: Contraceptive.AI
+# Design Guidelines: Contraceptive.ai
 
 ## Design Approach
 

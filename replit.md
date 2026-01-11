@@ -1,8 +1,8 @@
-# Contraceptive.AI
+# Contraceptive.ai
 
 ## Overview
 
-Contraceptive.AI is a healthcare marketplace web application that helps users compare telehealth providers for contraceptive care. The platform displays provider information including pricing, services, reviews, availability, and insurance coverage. Users can filter providers based on various criteria and view detailed provider profiles.
+Contraceptive.ai is a healthcare marketplace web application that helps users compare telehealth providers for contraceptive care. The platform displays provider information including pricing, services, reviews, availability, and insurance coverage. Users can filter providers based on various criteria and view detailed provider profiles.
 
 ## User Preferences
 
