@@ -8,9 +8,6 @@ export default function About() {
       {/* Hero */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-transparent to-accent/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <Badge variant="secondary" className="mb-4" data-testid="badge-about-origin">
-            From the creators of Contraceptive Compass
-          </Badge>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6" data-testid="text-about-headline">
             About Contraceptive.ai
           </h1>

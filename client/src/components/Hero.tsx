@@ -15,12 +15,6 @@ export function Hero({ providerCount, onScrollToProviders }: HeroProps) {
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative text-center">
         <div className="space-y-6">
-            {/* Origin badge */}
-            <Badge variant="secondary" className="gap-1.5" data-testid="badge-origin">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              From the creators of Contraceptive Compass
-            </Badge>
-
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight" data-testid="text-hero-headline">
               Find Your Perfect{" "}
